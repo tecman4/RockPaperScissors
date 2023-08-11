@@ -45,33 +45,33 @@ function getComputerChoice(){
 function game(){
     let computer = 0;
     let player = 0;
-    let game = 0;
+
     
-    while(game<5){
-        let game1 = playRound();
-        if(game1 =="Computer Wins"){
-            console.log("Computer Wins game "+game);
+    while(player<5  && computer<5){
+        let game = playRound();
+        if(game =="Computer Wins"){
+            console.log("Computer Wins This Round");
             computer++;
         }
-        if(game1 =="Player Wins"){
-            console.log("Player Wins game "+game);
+        if(game =="Player Wins"){
+            console.log("Player Wins This Round");
             player++
 
         }
-        if(game1 =="Push"){
-            console.log("Game "  + game+ " is a push");
+        if(game =="Push"){
+            console.log("Game is a push");
         }
-        game++;
+        console.log("Score: Player: "+player+" Computer: "+computer);
+
     }
     if(player>computer){
-        console.log("Player Wins "+player+" out of 5 games");
+        console.log("Player wins best of 5");
     }
     if(player<computer){
-        console.log("Computer Wins "+computer+" out of 5 games");
+      textContent = "Computer wins"
+      console.log("Computer wins best of 5");
     }
-    if(player == computer){
-        console.log("Computer & Player tie out of 5 games");
-    }
+
 }
 
 console.log(game());
