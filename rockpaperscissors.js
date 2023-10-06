@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.appendChild(div);
 
     var score = document.createElement('div');
-    score.textContent = 'Results: ';
+    score.textContent = 'Score: ';
     document.body.appendChild(score);
 
     var result = '';
@@ -52,22 +52,44 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
 
+    var player = 0;
+    var computer = 0;
 
   rock.addEventListener('click', () => {
+
     result = playRound('Rock'); 
     const button = document.querySelector('button');
     div.textContent = "Results: "+result;
+    score.textContent= "Score: Computer "+ computer+" Player "+player;
 
   });
   paper.addEventListener('click', () => {
     result = playRound('Paper'); 
     const button = document.querySelector('button');
     div.textContent = "Results: "+result;
+
   });
   scissors.addEventListener('click', () => {
     result = playRound('Scissors'); 
     const button = document.querySelector('button');
     div.textContent = "Results: "+result;
+
+   
+       //let game = playRound();
+       if(result =="Computer Wins"){
+           console.log("Computer Wins This Round");
+           computer++;
+       }
+       if(result =="Player Wins"){
+           console.log("Player Wins This Round");
+           player++
+ 
+       }
+       if(result =="Push"){
+           console.log("Game is a push");
+       }
+       score.textContent = "Score: Player: "+player+" Computer: "+computer;
+ 
   });
 });
 function getComputerChoice(){
@@ -83,33 +105,12 @@ function getComputerChoice(){
   }
 
 }
-function game(){
-  let computer = 0;
-  let player = 0;
 
-  
-      let game = playRound();
-      if(game =="Computer Wins"){
-          console.log("Computer Wins This Round");
-          computer++;
-      }
-      if(game =="Player Wins"){
-          console.log("Player Wins This Round");
-          player++
+  // if(player>computer){
+  //     console.log("Player wins best of 5");
+  // }
+  // if(player<computer){
+  //   textContent = "Computer wins"
+  //   console.log("Computer wins best of 5");
+  // }
 
-      }
-      if(game =="Push"){
-          console.log("Game is a push");
-      }
-      score.textContent = "Score: Player: "+player+" Computer: "+computer;
-
-  }
-  if(player>computer){
-      console.log("Player wins best of 5");
-  }
-  if(player<computer){
-    textContent = "Computer wins"
-    console.log("Computer wins best of 5");
-  }
-
-}
