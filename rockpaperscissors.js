@@ -59,9 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.appendChild(score);
 
     var beating = document.createElement('img');
-    beating.src = "/img/rockPaperScissors.jpg";
-    // computerBeatingMan.src = 'img/computerBeatingMan.gif';
-    // manBeatingComputer.scr = 'img/manBeatingComputer.gif';
+    beating.src = "img/rockPaperScissors.jpg";
     beating.width = 300;
     beating.height = 300;
     document.body.appendChild(beating);
@@ -108,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
     player = 0;
     computer = 0;
     score.textContent = "Score: Player: "+player+" Computer: "+computer;
-    beating.src = "/img/rockPaperScissors.jpg";
+    beating.src = "img/rockPaperScissors.jpg";
     cheat = false;
 
     });
@@ -186,14 +184,14 @@ document.addEventListener("DOMContentLoaded", function() {
   function winning(){
 
     if(player<computer){
-      beating.src = '/img/computerBeatingMan.gif';
+      beating.src = 'img/computerBeatingMan.gif';
   
     }
     if(player>computer){
-      beating.src = '/img/manBeatingComputer.gif';  
+      beating.src = 'img/manBeatingComputer.gif';  
     }
     if(player==computer){
-      beating.src = "/img/rockPaperScissors.jpg";
+      beating.src = "img/rockPaperScissors.jpg";
     }
   }
 
