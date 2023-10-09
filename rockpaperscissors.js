@@ -3,8 +3,17 @@ var result = '';
 var player = 0;
 var computer = 0;
 var cheatselect = '';
+var winner = 0;
+var beating = document.createElement('img');
+
+beating.src = "img/rockPaperScissors.jpg";
+beating.width = 300;
+beating.height = 300;
 
 function playRound(playerSelection) {
+
+
+  document.body.appendChild(beating);
   let computerSelection;
   if(cheat){
     computerSelection =cheatselect;
@@ -16,23 +25,43 @@ function playRound(playerSelection) {
     console.log("Player choses " + playerSelection);
     if (computerSelection==playerSelection) {
         return "Push";
+        winning(3);
       } 
       if (computerSelection=="Scissors" && playerSelection=="Paper") {
+        winning(1);
         return "Computer Wins";
       } if (playerSelection=="Scissors" && computerSelection=="Paper") {
+        winning(2);
         return "Player Wins";
       }
 
       if (computerSelection=="Rock" && playerSelection=="Scissors") {
+        winning(1);
         return "Computer Wins";
       } if (playerSelection=="Rock" && computerSelection=="Scissors") {
+        winning(2);
         return "Player Wins";
       }
 
       if (computerSelection=="Paper" && playerSelection=="Rock") {
+        winning(1);
         return "Computer Wins";
       } if (playerSelection=="Paper" && computerSelection=="Rock") {
+        winning(2);
         return "Player Wins";
+      }
+      function winning(winner){
+
+        if(winner==1){
+          beating.src = 'img/computerBeatingMan.gif';
+      
+        }
+        if(winner==2){
+          beating.src = 'img/manBeatingComputer.gif';  
+        }
+        if(winner==3){
+          beating.src = "img/rockPaperScissors.jpg";
+        }
       }
   }
 document.addEventListener("DOMContentLoaded", function() {
@@ -58,11 +87,6 @@ document.addEventListener("DOMContentLoaded", function() {
     score.textContent = 'Score: ';
     document.body.appendChild(score);
 
-    var beating = document.createElement('img');
-    beating.src = "img/rockPaperScissors.jpg";
-    beating.width = 300;
-    beating.height = 300;
-    document.body.appendChild(beating);
 
 
     const resetScore = document.createElement('button');
@@ -130,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function() {
       console.log("Game is a push");
   }
   score.textContent = "Score: Player: "+player+" Computer: "+computer;
-  winning();
+
  
   
   });
@@ -153,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   }
   score.textContent = "Score: Player: "+player+" Computer: "+computer;
-  winning();
+  
  
 
     
@@ -177,23 +201,11 @@ document.addEventListener("DOMContentLoaded", function() {
            console.log("Game is a push");
        }
        score.textContent = "Score: Player: "+player+" Computer: "+computer;
-       winning();
+       
 
  
   });
-  function winning(){
 
-    if(player<computer){
-      beating.src = 'img/computerBeatingMan.gif';
-  
-    }
-    if(player>computer){
-      beating.src = 'img/manBeatingComputer.gif';  
-    }
-    if(player==computer){
-      beating.src = "img/rockPaperScissors.jpg";
-    }
-  }
 
 });
 function getComputerChoice(){
