@@ -4,16 +4,14 @@ var player = 0;
 var computer = 0;
 var cheatselect = '';
 var winner = 0;
-var beating = document.createElement('img');
 
-beating.src = "img/rockPaperScissors.jpg";
-beating.width = 300;
-beating.height = 300;
+
+document.addEventListener("DOMContentLoaded", function() {
 
 function playRound(playerSelection) {
 
 
-  document.body.appendChild(beating);
+
   let computerSelection;
   if(cheat){
     computerSelection =cheatselect;
@@ -64,7 +62,8 @@ function playRound(playerSelection) {
         }
       }
   }
-document.addEventListener("DOMContentLoaded", function() {
+
+
     const body = document.querySelector('body');
     const rock = document.createElement('button');
     rock.textContent = 'Rock';
@@ -87,7 +86,11 @@ document.addEventListener("DOMContentLoaded", function() {
     score.textContent = 'Score: ';
     document.body.appendChild(score);
 
-
+    var beating = document.createElement('img');
+    beating.width = 300;
+    beating.height = 300;
+    beating.src = "img/rockPaperScissors.jpg";
+    document.body.appendChild(beating);
 
     const resetScore = document.createElement('button');
     resetScore.textContent = 'Reset Score & Play Fair';
