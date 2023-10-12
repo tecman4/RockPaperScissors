@@ -100,6 +100,10 @@ function playRound(playerSelection) {
     computerCheat.textContent = 'Let Computer Cheat';
     document.body.appendChild(computerCheat);
 
+    const link = document.createElement('a');
+    link.href = '../index.html';
+    link.textContent = 'Home';
+    document.body.appendChild(link);
 
 
 
